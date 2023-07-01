@@ -36,6 +36,7 @@
     font-size: 48px;
   }
 }
+
 .remove-all-btn {
   display: flex;
   align-self: flex-end;
@@ -55,5 +56,3 @@
     font-size: 16px;
   }
 }
-
-/* Write your CSS here */

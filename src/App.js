@@ -60,23 +60,27 @@ class App extends Component {
     this.setState({cartList: updatedCartList})
   }
 
-  //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
-
   addCartItem = product => {
     const {cartList} = this.state
-    const productItem = cartList.find(eachCart => eachCart.id === product.id)
-    if (productItem) {
+    const productObject = cartList.find(
+      eachCartItem => eachCartItem.id === product.id,
+    )
+
+    if (productObject) {
       this.setState(prevState => ({
         cartList: prevState.cartList.map(eachCartItem => {
-          if (eachCartItem.id === productItem.id) {
-            const updatedQuantity = eachCartItem.quantity + productItem.quantity
+          if (productObject.id === eachCartItem.id) {
+            const updatedQuantity = eachCartItem.quantity + product.quantity
+
             return {...eachCartItem, quantity: updatedQuantity}
           }
+
           return eachCartItem
         }),
       }))
     } else {
       const updatedCartList = [...cartList, product]
+
       this.setState({cartList: updatedCartList})
     }
   }

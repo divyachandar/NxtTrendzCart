@@ -1,6 +1,6 @@
-// Write your code here
-import './index.css'
 import CartContext from '../../context/CartContext'
+
+import './index.css'
 
 const CartSummary = () => (
   <CartContext.Consumer>
@@ -10,6 +10,7 @@ const CartSummary = () => (
       cartList.forEach(eachCartItem => {
         total += eachCartItem.price * eachCartItem.quantity
       })
+
       return (
         <>
           <div className="cart-summary-container">
